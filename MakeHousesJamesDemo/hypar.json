@@ -1,0 +1,97 @@
+{
+    "$schema": "https://hypar.io/Schemas/Function.json",
+    "id": "ee25b259-9db9-41be-a3c8-3eb931b5b926",
+    "name": "Make houses James demo",
+    "display_name": "Make houses James demo",
+    "description": "",
+    "language": "C#",
+    "model_dependencies": [
+        {
+            "autohide": false,
+            "name": "Lots",
+            "optional": true
+        }
+    ],
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "Max Ratio": {
+                "default": 0.3,
+                "maximum": 1,
+                "type": "number",
+                "$hyparOrder": 2,
+                "$hyparShowIf": {
+                    "conditions": [
+                        {
+                            "property": "Max area strategy",
+                            "value": "Ratio"
+                        }
+                    ]
+                },
+                "$hyparUnitType": "ratio",
+                "$hyparStyle": "number",
+                "minimum": 0.01
+            },
+            "Minimum Floors": {
+                "multipleOf": 1,
+                "default": 1,
+                "type": "number",
+                "$hyparOrder": 5,
+                "$hyparUnitType": "none",
+                "$hyparStyle": "number",
+                "minimum": 1
+            },
+            "Maximum Floors": {
+                "multipleOf": 1,
+                "default": 3,
+                "type": "number",
+                "$hyparOrder": 3,
+                "$hyparStyle": "number",
+                "minimum": 1
+            },
+            "Max area strategy": {
+                "default": "Area",
+                "type": "string",
+                "$hyparOrder": 0,
+                "enum": [
+                    "Area",
+                    "Ratio"
+                ]
+            },
+            "Floor Height": {
+                "default": 3,
+                "type": "number",
+                "$hyparOrder": 4,
+                "$hyparUnitType": "length",
+                "$hyparStyle": "number",
+                "minimum": 1
+            },
+            "Max Area": {
+                "default": 5,
+                "type": "number",
+                "$hyparShowIf": {
+                    "conditions": [
+                        {
+                            "property": "Max area strategy",
+                            "value": "Area"
+                        }
+                    ]
+                },
+                "$hyparOrder": 1,
+                "$hyparUnitType": "area",
+                "$hyparStyle": "number",
+                "minimum": 5
+            }
+        }
+    },
+    "overrides": {},
+    "outputs": [],
+    "element_types": [
+        "https://schemas.hypar.io/House.json",
+        "https://schemas.hypar.io/Site.json"
+    ],
+    "repository_url": "",
+    "filters": {},
+    "last_updated": "2023-12-13T20:28:23.109805",
+    "cli_version": "1.10.0"
+}
