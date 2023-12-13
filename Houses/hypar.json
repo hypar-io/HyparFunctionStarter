@@ -1,57 +1,102 @@
 {
-  "$schema": "https://hypar.io/Schemas/Function.json",
-  "id": "65b90f6d-6251-4275-a087-4a20be5c6dfa",
-  "name": "Houses",
-  "display_name": "Houses",
-  "description": "Adds houses to lots.",
-  "language": "C#",
-  "model_dependencies": [
-    {
-      "autohide": false,
-      "name": "Lots",
-      "optional": true
-    }
-  ],
-  "model_output": "Houses",
-  "input_schema": {
-    "type": "object",
-    "properties": {
-      "Minimum # of floors": {
-        "multipleOf": 1,
-        "default": 1,
-        "type": "number",
-        "$hyparOrder": 0,
-        "$hyparUnitType": "none",
-        "$hyparStyle": "number",
-        "minimum": 0
-      },
-      "Maximum # of floors.": {
-        "multipleOf": 1,
-        "default": 3,
-        "type": "number",
-        "$hyparOrder": 1,
-        "$hyparStyle": "number",
-        "minimum": 1
-      },
-      "Floor Height": {
-        "default": 2.5,
-        "maximum": 20,
-        "type": "number",
-        "$hyparOrder": 2,
-        "$hyparUnitType": "length",
-        "$hyparStyle": "number",
-        "minimum": 1
-      }
-    }
-  },
-  "overrides": {},
-  "outputs": [],
-  "element_types": [
-    "https://schemas.hypar.io/House.json",
-    "https://schemas.hypar.io/Site.json"
-  ],
-  "repository_url": "",
-  "filters": {},
-  "last_updated": "2023-12-13T03:27:04.43183",
-  "cli_version": "1.10.0"
+    "$schema": "https://hypar.io/Schemas/Function.json",
+    "id": "65b90f6d-6251-4275-a087-4a20be5c6dfa",
+    "name": "Houses",
+    "display_name": "Houses",
+    "description": "Adds houses to lots.",
+    "language": "C#",
+    "model_dependencies": [
+        {
+            "autohide": false,
+            "name": "Lots",
+            "optional": true
+        }
+    ],
+    "model_output": "Houses",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "Maximum footprint strategy": {
+                "description": "Choose the strategy for determining maximum house footprint.",
+                "default": "Area",
+                "type": "string",
+                "$hyparOrder": 0,
+                "enum": [
+                    "Area",
+                    "Ratio"
+                ]
+            },
+            "Minimum # of floors": {
+                "multipleOf": 1,
+                "default": 1,
+                "type": "number",
+                "$hyparOrder": 1,
+                "$hyparUnitType": "none",
+                "$hyparStyle": "number",
+                "minimum": 0
+            },
+            "Maximum area": {
+                "default": 10,
+                "$hyparShowIf": {
+                    "conditions": [
+                        {
+                            "property": "Maximum footprint strategy",
+                            "value": "Area"
+                        }
+                    ]
+                },
+                "maximum": 1000000,
+                "type": "number",
+                "$hyparOrder": 2,
+                "$hyparUnitType": "area",
+                "$hyparStyle": "number",
+                "minimum": 1
+            },
+            "Maximum # of floors.": {
+                "multipleOf": 1,
+                "default": 3,
+                "type": "number",
+                "$hyparOrder": 3,
+                "$hyparStyle": "number",
+                "minimum": 1
+            },
+            "Floor Height": {
+                "default": 2.5,
+                "maximum": 20,
+                "type": "number",
+                "$hyparOrder": 4,
+                "$hyparUnitType": "none",
+                "$hyparStyle": "number",
+                "minimum": 0
+            },
+            "Maximum Ratio": {
+                "multipleOf": 0.1,
+                "default": 0.3,
+                "$hyparShowIf": {
+                    "conditions": [
+                        {
+                            "property": "Maximum footprint strategy",
+                            "value": "Ratio"
+                        }
+                    ]
+                },
+                "maximum": 1,
+                "type": "number",
+                "$hyparOrder": 5,
+                "$hyparUnitType": "ratio",
+                "$hyparStyle": "number",
+                "minimum": 0.01
+            }
+        }
+    },
+    "overrides": {},
+    "outputs": [],
+    "element_types": [
+        "https://schemas.hypar.io/House.json",
+        "https://schemas.hypar.io/Site.json"
+    ],
+    "repository_url": "",
+    "filters": {},
+    "last_updated": "2023-12-13T04:37:08.248835",
+    "cli_version": "1.10.0"
 }

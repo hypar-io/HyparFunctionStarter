@@ -28,27 +28,16 @@ namespace Houses
             var lots = inputModels.TryGetValue("Lots", out var lotsModel) ? lotsModel.AllElementsOfType<Site>() : new List<Site>();
             foreach (var lot in lots)
             {
-                var height = RandomBetweenMinAndMax((int)minimumOfFloors, (int)maximumOfFloors) * floorHeight;
-                var perimeter = lot.Perimeter.Offset(-0.2).FirstOrDefault();
-                if (perimeter == null)
-                {
-                    continue;
-                }
+                var height = random.Next((int)minimumOfFloors, (int)maximumOfFloors) * floorHeight;
                 // Create a house.
-                var lotHouse = new House(random.NextColor(), height, perimeter);
+                var lotHouse = new House(lot,
+                                         input.MaximumFootprintStrategy == HousesInputsMaximumFootprintStrategy.Area ? input.MaximumArea : input.MaximumRatio,
+                                         input.MaximumFootprintStrategy,
+                                         height);
                 output.Model.AddElement(lotHouse);
             }
 
-            var house = new House(new Color("Aqua"), 3, Polygon.Rectangle(5, 5));
-            output.Model.AddElement(house);
-
             return output;
-        }
-
-        private static int RandomBetweenMinAndMax(int min, int max)
-        {
-            var random = new Random();
-            return random.Next(min, max);
         }
 
     }
