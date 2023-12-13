@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Houses", "src\Houses.csproj", "{9C5E2FA0-7D67-4E95-AE3E-7D36088B4214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Houses.Dependencies", "dependencies\Houses.Dependencies.csproj", "{74E84DC1-0BD0-477D-9151-3EDDEEE01D4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Houses.Tests", "test\Houses.Tests.csproj", "{BEB0AE1A-CA02-4EB6-AB9E-FCB5BD6FFA3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C5E2FA0-7D67-4E95-AE3E-7D36088B4214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C5E2FA0-7D67-4E95-AE3E-7D36088B4214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C5E2FA0-7D67-4E95-AE3E-7D36088B4214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C5E2FA0-7D67-4E95-AE3E-7D36088B4214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74E84DC1-0BD0-477D-9151-3EDDEEE01D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74E84DC1-0BD0-477D-9151-3EDDEEE01D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74E84DC1-0BD0-477D-9151-3EDDEEE01D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74E84DC1-0BD0-477D-9151-3EDDEEE01D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB0AE1A-CA02-4EB6-AB9E-FCB5BD6FFA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB0AE1A-CA02-4EB6-AB9E-FCB5BD6FFA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB0AE1A-CA02-4EB6-AB9E-FCB5BD6FFA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB0AE1A-CA02-4EB6-AB9E-FCB5BD6FFA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
