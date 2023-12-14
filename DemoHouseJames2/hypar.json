@@ -1,0 +1,47 @@
+{
+  "$schema": "https://hypar.io/Schemas/Function.json",
+  "id": "5c45b43a-6e87-46b4-a5df-29fce0b75ad6",
+  "name": "Demo house James 2",
+  "display_name": "Demo house James 2",
+  "description": "",
+  "language": "C#",
+  "model_dependencies": [
+    {
+      "autohide": false,
+      "name": "Lots",
+      "optional": false
+    }
+  ],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "Number of Floors": {
+        "multipleOf": 1,
+        "default": 1,
+        "type": "number",
+        "$hyparOrder": 0,
+        "$hyparUnitType": "none",
+        "$hyparStyle": "number",
+        "minimum": 1
+      },
+      "Floor height": {
+        "default": 3,
+        "type": "number",
+        "$hyparOrder": 1,
+        "$hyparUnitType": "length",
+        "$hyparStyle": "number",
+        "minimum": 1
+      }
+    }
+  },
+  "overrides": {},
+  "outputs": [],
+  "element_types": [
+    "https://schemas.hypar.io/House.json",
+    "https://schemas.hypar.io/Site.json"
+  ],
+  "repository_url": "",
+  "filters": {},
+  "last_updated": "2023-12-14T19:35:42.276492",
+  "cli_version": "1.11.0-alpha.11"
+}
