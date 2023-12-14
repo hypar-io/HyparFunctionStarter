@@ -6,8 +6,11 @@
 
 |Input Name|Type|Description|
 |---|---|---|
-|Number of Floors|number||
+|Color strategy|string||
 |Floor height|number||
+|Max floor count|number||
+|House Color|https://hypar.io/Schemas/Geometry/Color.json||
+|Min floor count|number||
 
 
 <br>

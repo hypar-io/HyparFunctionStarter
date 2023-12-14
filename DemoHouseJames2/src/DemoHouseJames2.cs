@@ -24,20 +24,20 @@ namespace DemoHouseJames2
             }
 
             // Gather inputs.
-            var numberOfFloors = input.NumberOfFloors;
             var floorHeight = input.FloorHeight;
 
-            var height = numberOfFloors * floorHeight;
-            var color = new Color("aqua");
+            var random = new System.Random(21);
 
             foreach (var lot in lots)
             {
+                var numberOfFloors = random.Next((int)input.MinFloorCount, (int)input.MaxFloorCount);
+                var height = numberOfFloors * floorHeight;
+
+                var color = input.ColorStrategy == DemoHouseJames2InputsColorStrategy.Random ? random.NextColor() : input.HouseColor;
+
                 var lotHouse = new House(lot, height, color);
                 output.Model.AddElement(lotHouse);
             }
-
-            var house = new House(new Color("aqua"), height, Polygon.Rectangle(5, 5));
-            output.Model.AddElement(house);
 
             return output;
         }
